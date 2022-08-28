@@ -57,3 +57,5 @@ $route['translate_uri_dashes'] = FALSE;
 $route['users']['post'] = 'api/v1/UserController/index_post';
 //Login REST API
 $route['login']['post'] = 'api/v1/LoginController/index_post';
+//Users activities REST API
+$route['users_activities']['post'] = 'api/v1/UserActivityController/index_post';
