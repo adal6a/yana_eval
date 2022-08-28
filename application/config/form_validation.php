@@ -11,5 +11,15 @@ $config = [
             'field' => 'password',
             'rules' => 'required|min_length[8]'
         ],
+    ],
+    'user_login' => [
+        [
+            'field' => 'email',
+            'rules' => 'trim|required|valid_email'
+        ],
+        [
+            'field' => 'password',
+            'rules' => 'required'
+        ],
     ]
 ];
