@@ -37,6 +37,7 @@ class Welcome extends CI_Controller
             $crud->fields('email', 'password', 'verify_password');
 
             $crud->unique_fields(['email']);
+            $crud->set_rules('email', 'Email', 'trim|required|valid_email');
 
             $crud->change_field_type('password', 'password');
             $crud->change_field_type('verify_password', 'password');
@@ -59,6 +60,33 @@ class Welcome extends CI_Controller
 
             $crud->callback_edit_field('password', [$this, 'set_password_input_to_empty']);
             $crud->callback_add_field('password', [$this, 'set_password_input_to_empty']);
+
+            $output = $crud->render();
+
+            $this->output($output);
+
+        } catch (Exception $e) {
+            show_error($e->getMessage() . ' --- ' . $e->getTraceAsString());
+        }
+    }
+
+    public function users_activities()
+    {
+        try {
+            $crud = new grocery_CRUD();
+
+            $crud->set_theme('datatables');
+            $crud->set_table('user_activities');
+            $crud->set_subject('User activities');
+
+            $crud->required_fields('uid', 'message_text', 'message_from', 'timestamp');
+
+            $crud->change_field_type('datetime', 'datetime');
+            $crud->change_field_type('timestamp', 'datetime');
+
+            $crud->display_as('uid','User');
+
+            $crud->set_relation('uid','users','email');
 
             $output = $crud->render();
 

@@ -10,7 +10,8 @@
 </head>
 <body>
 <div>
-    <a href='<?php echo site_url('welcome/users')?>'>Users</a>
+    <a href='<?php echo site_url('welcome/users')?>'>Users</a> |
+    <a href='<?php echo site_url('welcome/users_activities')?>'>Users activities</a>
 
 </div>
 <div style='height:20px;'></div>
