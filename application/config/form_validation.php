@@ -21,5 +21,11 @@ $config = [
             'field' => 'password',
             'rules' => 'required'
         ],
+    ],
+    'user_activities' => [
+        [
+            'field' => 'uid',
+            'rules' => 'required|integer|greater_than[0]'
+        ]
     ]
 ];

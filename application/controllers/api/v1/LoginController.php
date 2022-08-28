@@ -20,7 +20,7 @@ class LoginController extends RestController
         if (!$this->form_validation->run('user_login')) {
             $this->create_response($this->form_validation->get_errors(), RestController::HTTP_BAD_REQUEST);
         } else {
-            $user =  $this->user_model->find_by_email($data);
+            $user = $this->user_model->find_by_email($data);
             if (is_null($user)) {
                 $this->wrong_login();
             }
@@ -48,9 +48,8 @@ class LoginController extends RestController
     private function create_response($payload, $code = RestController::HTTP_OK)
     {
         $this->response([
-                'payload' => $payload,
-                'code' => $code
-            ], $code
-        );
+            'code' => $code,
+            'payload' => $payload
+        ], $code);
     }
 }
