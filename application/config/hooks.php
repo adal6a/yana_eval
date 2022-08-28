@@ -11,3 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |	https://codeigniter.com/user_guide/general/hooks.html
 |
 */
+$hook['pre_system'] = function () {
+    $dotenv = new Symfony\Component\Dotenv\Dotenv(true);
+    $dotenv->load(__DIR__.'/../../.env');
+};
