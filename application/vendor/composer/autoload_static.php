@@ -6,18 +6,31 @@ namespace Composer\Autoload;
 
 class ComposerStaticInit6fa6e7b433588f05ce26c713f569676d
 {
+    public static $files = array (
+        '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
+    );
+
     public static $prefixLengthsPsr4 = array (
         'S' => 
         array (
+            'Symfony\\Component\\Dotenv\\' => 25,
             'Sinergi\\BrowserDetector\\' => 24,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
+        'Symfony\\Component\\Dotenv\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/dotenv',
+        ),
         'Sinergi\\BrowserDetector\\' => 
         array (
             0 => __DIR__ . '/..' . '/sinergi/browser-detector/src',
         ),
+    );
+
+    public static $classMap = array (
+        'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
@@ -25,6 +38,7 @@ class ComposerStaticInit6fa6e7b433588f05ce26c713f569676d
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit6fa6e7b433588f05ce26c713f569676d::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit6fa6e7b433588f05ce26c713f569676d::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit6fa6e7b433588f05ce26c713f569676d::$classMap;
 
         }, null, ClassLoader::class);
     }
