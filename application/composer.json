@@ -1,6 +1,7 @@
 {
     "require": {
         "sinergi/browser-detector": "^6.1",
-        "symfony/dotenv": "^5.4"
+        "symfony/dotenv": "^5.4",
+        "chriskacerguis/codeigniter-restserver": "^3.1"
     }
 }
