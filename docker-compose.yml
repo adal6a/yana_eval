@@ -27,12 +27,15 @@ services:
     volumes:
       - ./docker/db:/docker-entrypoint-initdb.d/
     command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: "yana"
+      MYSQL_USER: "yana"
+      MYSQL_PASSWORD: "yana"
+      MYSQL_DATABASE: "yana"
     networks:
       yana:
     ports:
       - 3306:3306
-    env_file:
-      - .env
       
 networks:
   yana:
