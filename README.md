@@ -1,10 +1,37 @@
-# yana_eval
-composer require symfony/dotenv
+# Yana Eval
 
-composer require chriskacerguis/codeigniter-restserver
+## **Requirements**
 
-MYSQL_PASSWORD=
-MYSQL_ROOT_PASSWORD=
-MYSQL_ROOT_PASSWORD=
+- Docker >= 20
+- docker-compose >= 3.8
 
-Prueba tecnica Yana
+## **Environment file**
+
+````
+MYSQL_HOST=database
+MYSQL_DATABASE=yana
+MYSQL_USER=yana
+MYSQL_PASSWORD=yana
+````
+
+## **Run Application**
+
+- Run the following command to start the application:
+
+```bash
+docker-compose up -d --build
+```
+
+```bash
+docker-compose exec -it php bash
+```
+
+```bash
+cp .env.example .env
+```
+
+```bash
+cd application
+
+composer install
+```
