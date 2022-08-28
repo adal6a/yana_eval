@@ -22,4 +22,12 @@ class User_model extends CI_Model
             'id' => $this->db->insert_id()
         ])->row();
     }
+
+    public function find_by_email($data)
+    {
+        $this->db->select('id, email, password');
+        return $this->db->get_where($this->table, [
+            'email' => $data['email']
+        ])->row();
+    }
 }
