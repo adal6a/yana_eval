@@ -18,22 +18,20 @@ class UserController extends RestController
         $this->form_validation->set_data($data);
 
         if (!$this->form_validation->run('user_store')) {
-            $this->response(
-                [
-                    'payload' => $this->form_validation->get_errors(),
-                    'code' => RestController::HTTP_BAD_REQUEST
-                ],
-                RestController::HTTP_BAD_REQUEST
-            );
+            $this->create_response($this->form_validation->get_errors(), RestController::HTTP_BAD_REQUEST);
         } else {
             $data['password'] = password_hash($data['password'], PASSWORD_BCRYPT);
             $user = $this->user_model->create($data);
-            $this->response([
-                'payload' => [
-                    'user' => $user
-                ],
-                'code' => RestController::HTTP_OK
-            ], RestController::HTTP_OK);
+            $this->create_response(['user' => $user]);
         }
+    }
+
+    private function create_response($payload, $code = RestController::HTTP_OK)
+    {
+        $this->response([
+                'payload' => $payload,
+                'code' => $code
+            ], $code
+        );
     }
 }
