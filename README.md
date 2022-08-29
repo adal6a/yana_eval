@@ -35,3 +35,7 @@ cd application
 
 composer install
 ```
+
+> ## **Postman collection**
+>
+> To test api endpoints use **Yana.postman_collection.json**
